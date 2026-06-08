@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Esferas del Tiempo - Jhonathan Palencia</title>
+    <style>
+        :root {
+            --bg-dark: #06060c;
+            --panel-bg: rgba(16, 16, 30, 0.75);
+            --accent-gold: #ffb300;
+            --accent-glow: #ffc107;
+            --accent-crimson: #ff2a5f;
+            --text-light: #f8f9fa;
+            --text-muted: #a0a5c0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 42, 95, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 179, 0, 0.04) 0%, transparent 40%);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px 80px 20px;
+            background: linear-gradient(180deg, #0d0d1a 0%, var(--bg-dark) 100%);
+            border-bottom: 1px solid rgba(255, 42, 95, 0.2);
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--accent-gold);
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(255, 179, 0, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            font-style: italic;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .main-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: none;
+            margin-bottom: 60px;
+        }
+
+        .main-table td {
+            padding: 20px;
+            vertical-align: middle;
+            border: none;
+        }
+
+        .col-cover {
+            width: 45%;
+            text-align: center;
+        }
+
+        .col-info {
+            width: 55%;
+            padding-left: 40px !important;
+        }
+
+        .book-img {
+            max-width: 100%;
+            width: 380px;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 42, 95, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            color: var(--accent-gold);
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-crimson);
+            border-radius: 2px;
+        }
+
+        .synopsis-box p {
+            font-size: 1.15rem;
+            color: #e4e6f0;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .cta-box {
+            margin-top: 40px;
+        }
+
+        .btn-premium {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff9900 0%, #ff5500 100%);
+            color: #000000;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(255, 153, 0, 0.3), 0 0 0 1px rgba(255,255,255,0.1) inset;
+            transition: all 0.3s ease;
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 153, 0, 0.5);
+            filter: brightness(1.1);
+        }
+
+        .author-card {
+            background: var(--panel-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 45px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            margin-top: 40px;
+        }
+
+        .author-card h3 {
+            color: var(--accent-gold);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .author-card p {
+            color: #d1d4e5;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: #555870;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 80px;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .main-table td {
+                display: block;
+                width: 100% !important;
+                padding-left: 20px !important;
+                text-align: center;
+            }
+            .synopsis-box p {
+                text-align: left;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>Las Esferas del Tiempo</h1>
+        <p>Una fascinante odisea donde la ciencia ficción, la fantasía y el destino universal colisionan</p>
+    </div>
+
+    <div class="container">
+        
+        <table class="main-table">
+            <tr>
+                <td class="col-cover">
+                    <img src="portada.png" alt="Las Esferas del Tiempo - Portada" class="book-img">
+                </td>
+                <td class="col-info">
+                    <h2>Sinopsis Oficial</h2>
+                    <div class="synopsis-box">
+                        <p>Carlos, un joven marcado por la pérdida de sus padres, lleva una vida aparentemente normal hasta que descubre un misterioso objeto: una esfera capaz de abrir portales a otros mundos. Junto a su mejor amigo Mateo, es transportado a Sirius Prime, un planeta donde la tecnología y la energía que sostiene la vida están profundamente conectadas con el flujo del tiempo.</p>
+                        <p>Lo que comienza como un descubrimiento extraordinario pronto se convierte en una misión crucial: ambos han sido elegidos para enfrentar a <strong>Morgath</strong>, una fuerza oscura que amenaza con destruir no solo ese mundo, sino el equilibrio del universo.</p>
+                        <p>Mientras aprenden a dominar el Éterium, una energía ancestral que conecta toda la existencia, Carlos deberá confrontar su pasado, sus miedos y las verdades ocultas sobre la muerte de sus padres. En un viaje donde cada decisión altera el destino, entenderá que el verdadero poder no radica únicamente en la fuerza, sino en la capacidad de transformar el dolor en propósito.</p>
+                        <p><em>Las esferas del tiempo</em> es una novela de Jhonathan Palencia que combina magistralmente la ciencia ficción y la fantasía con una profunda carga emocional, explorando el tiempo, la resiliencia ante la pérdida y la eterna batalla entre la luz y la oscuridad.</p>
+                    </div>
+                    
+                    <div class="cta-box">
+                        <a href="https://a.co/d/0c1t18vC" class="btn-premium" target="_blank">Adquirir en Amazon</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="author-card">
+            <h3>Sobre el Autor — Jhonathan Palencia</h3>
+            <p>Escritor colombiano de narrativa de ficción, enfocado en los géneros de ciencia ficción y fantasía, con un profundo interés en explorar temáticas como el tiempo, la identidad, la pérdida y la transformación personal.</p>
+            <p>Es autor del libro <em>Reflejos de la soledad</em>, publicado con la editorial Círculo Rojo, obra que marca el inicio de su trayectoria en el ámbito literario.</p>
+            <p>En su más reciente trabajo, <em>Las esferas del tiempo</em>, desarrolla un universo narrative donde convergen elementos de ciencia ficción, fantasía y reflexión emocional, consolidando un estilo caracterizado por la construcción de mundos imaginarios y el desarrollo de personajes con profundidad interna.</p>
+            <p style="margin-bottom: 0;">Actualmente, continúa trabajando en nuevos proyectos literarios con el objetivo de ampliar su obra y posicionarse dentro del panorama de la narrativa contemporánea en español.</p>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Jhonathan Palencia. Todos los derechos reservados.
+    </div>
+
+</body>
+</html>
